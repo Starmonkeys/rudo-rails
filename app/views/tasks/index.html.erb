@@ -1,0 +1,22 @@
+<% @tasks.each_with_index do |task, i| %>
+  <h2><%= "#{i+1}: #{task.title}" %></h2>
+<% end %>
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+    <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag(:controller => :tasks, :action => :create, :method => :post) do %>
+  <%= label_tag("New task: ") %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Create Task!") %>
+<% end %>
+
+
