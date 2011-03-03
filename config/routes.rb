@@ -5,6 +5,8 @@ Rudo::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   match 'tasks/create' => 'tasks#create'
+  match 'tasks/done/:id' => 'tasks#done', :as => 'finish_task'
+  
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

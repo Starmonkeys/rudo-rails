@@ -1,7 +1,8 @@
 <% @tasks.each_with_index do |task, i| %>
   <h2><%= "#{i+1}: #{task.title}" %></h2>
+  <%= button_to("Done!", finish_task_path(task)) %>
 <% end %>
-<% if @task.errors.any? %>
+<% if @task && @task.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
