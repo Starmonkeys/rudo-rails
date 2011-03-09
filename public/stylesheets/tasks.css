@@ -1,0 +1,12 @@
+body {
+  background: #87AEC5;
+  font-family: Arial, Sans-serif;
+}
+
+.list {
+  background-image: url('/images/post-it.jpg');
+  background-repeat: no-repeat;
+}
+
+.task {
+}
