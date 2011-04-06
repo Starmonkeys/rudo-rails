@@ -1,4 +1,4 @@
-<ol class='list'>
+<ol id='list'>
 <% @tasks.each do |task| %>
   <li class='task'><%= render :partial => 'task', :locals => { :my_task => task } %></li>
 <% end %>
@@ -15,10 +15,9 @@
   </div>
 <% end %>
 
-<%= form_tag(:controller => :tasks, :action => :create, :method => :post) do %>
-  <%= label_tag("New task: ") %>
-  <%= text_field_tag(:title) %>
-  <%= submit_tag("Create Task!") %>
+<%= form_for @task, :remote => true, :url => {:controller => :tasks, :action => :create}, :html => { :id => 'create_task_form' } do |f| %>
+  <%= f.label "New task: " %>
+  <%= f.text_field :title %>
+  <div class="validation-error"></div>
+  <%= f.submit "Create Task!" %>
 <% end %>
-
-
