@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_filter :get_time
 
   def index
     @task = Task.new
@@ -30,9 +29,5 @@ class TasksController < ApplicationController
     a.done_date = Time.now
     a.save
     redirect_to '/'
-  end
-
-  def get_time
-    @time = Time.now
   end
 end

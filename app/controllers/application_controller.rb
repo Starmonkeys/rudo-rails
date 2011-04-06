@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
+  before_filter :get_time
 
+
+  def get_time
+    @time = Time.now
+  end
 private
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
